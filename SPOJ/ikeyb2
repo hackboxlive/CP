@@ -1,0 +1,73 @@
+
+#include<stdio.h>
+int a[100];
+int min(int p)
+{ int ret=0,i,m=a[0];
+  for(i=1;i<=p;i++)
+  if(a[i]<=m)
+  {m=a[i];
+   ret=i;
+  }
+  return ret;
+}
+int main()
+{  int T,num,i,curr1,curr,j,K,k,L,p,ans[100][100],pos[100][100],freq[100];
+   char key[100],letter[100];
+   T=getn();
+   for(num=1;num<=T;num++)
+   {
+  scanf("%d%d",&k,&L);
+  scanf("%s",key);
+  scanf("%s",letter);
+  for(i=0;i<L;i++)
+  { scanf("%d",&j);
+   freq[i]=j;
+  }
+  j=0;
+  for(i=0;i<L;i++)
+  {j+=freq[i]*(i+1);
+  ans[0][i]=j;
+  pos[0][i]=(i+1);
+  }
+  for(i=1;i<K;i++)
+  { ans[i][i]=ans[i-1][i-1]+freq[i];
+   pos[i][i]=1;
+   for(j=i+1;j<L;j++)
+   {p=pos[i][j-1];
+    curr1=0;curr=0;
+    for(k=0;k<=p;k++)
+    { curr+=freq[j-k];
+   curr1+=curr;
+   a[k]=ans[i-1][j-1-k]+curr1;
+   pos[i][j]=min(p)+1;
+   ans[i][j]=a[min(p)];
+    }
+   }
+  }
+  curr=0;
+  for(i=L-1,j=K-1;i>=0;i--)
+  { if(curr==0)
+   {a[i]=pos[j][i];
+    curr=1;
+   }
+   
+   else
+   a[i]=a[i+1]-1;
+   if(a[i]==1)
+   {curr=0;
+   j--;}
+  }
+  printf("Keypad #%d:",num);
+  j=0;
+
+  for(i=0;i<L;i++)
+  {if(a[i]==1)
+  {printf("\n%c: ",key[j]);
+   j++;
+  }
+  printf("%c",letter[i]);
+  }
+  printf("\n\n");
+   }
+   return 0;
+}
