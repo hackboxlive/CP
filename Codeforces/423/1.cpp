@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main()	{
-	int n,a,b;
+	int n,a,b,c;
 	cin>>n>>a>>b;
+	c=0;
 	int temp;
 	int ctr=0;
 	for(int i=0;i<n;i++)	{
@@ -13,7 +14,10 @@ int main()	{
 			}
 			else if(b>0)	{
 				b--;
-				a++;
+				c++;
+			}
+			else if(c>0)	{
+				c--;
 			}
 			else	{
 				ctr++;
