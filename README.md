@@ -9,4 +9,4 @@ By the way, I go by the handle of
   - [mr_knownothing](www.codeforces.com/profile/mr_knownothing) on Codeforces
   - [shaktisingh](www.spoj.com/users/shaktisingh) on SPOJ
   
-Feel free to contact me. Questions will always be entertained.
+Feel free to contact me. Questions will always be entertained! 
