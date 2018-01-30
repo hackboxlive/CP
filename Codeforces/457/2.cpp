@@ -61,6 +61,7 @@ int main()	{
 		// getchar();
 	}
 	vector<long long> ans;
+	long long vv=0;
 	for(long long i=0;i<bits.size();i++)	{
 		for(long long j=0;j<bits[i].first;j++)	{
 			ans.push_back(bits[i].second);
@@ -69,7 +70,9 @@ int main()	{
 	cout<<"Yes\n";
 	for(long long i=0;i<k;i++)	{
 		cout<<ans[i]<<" ";
+		vv+=pow(2,ans[i]);
 	}
 	cout<<endl;
+	cout<<vv<<endl;
 	return 0;
 }
