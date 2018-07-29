@@ -19,6 +19,22 @@ int get_greatest_factor(int n)	{
 	}
 	return ans;
 }
+    bool check(int GCD, int K){
+        int max_prime = 1;
+        for(int i = 2; i <= sqrt(GCD); i++){
+            while(GCD % i == 0){
+                GCD /= i;
+                max_prime = max(max_prime, i);
+            }
+        }
+        max_prime = max(max_prime, GCD);
+        //cout << max_prime << endl;
+        if(max_prime <= K)
+            return true;
+        else
+            return false;
+    }
+
 int main()	{
 	int t;
 	cin>>t;
@@ -31,13 +47,14 @@ int main()	{
 			cin>>temp;
 			g=__gcd(g,temp);
 		}
-		int v=get_greatest_factor(g);
+		// if(check)
+		// int v=get_greatest_factor(g);
 		//cout<<v<<endl;
-		if(v>k)	{
-			cout<<"NO\n";
+		if(check(g,k))	{
+			cout<<"YES\n";
 		}
 		else	{
-			cout<<"YES\n";
+			cout<<"NO\n";
 		}
 	}
 	return 0;
