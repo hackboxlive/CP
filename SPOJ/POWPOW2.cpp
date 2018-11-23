@@ -18,7 +18,6 @@ void precompute()	{
 			}
 		}
 	}
-	// cout << factors[2 * LIM] << endl;
 }
 
 long long power_expo(long long a, long long n, long long modd)	{
@@ -59,11 +58,6 @@ int main()	{
 			get_factors(i, -1);
 			get_factors(n + i, 1);
 		}
-		// for(int i = 1; i <= 2 * n; i++)	{
-		// 	if(f[i] != 0)	{
-		// 		cout << i << " " << f[i] << endl;
-		// 	}
-		// }
 		long long ans = 1;
 		for(int i = 2; i <= 2 * n; i++)	{
 			ans *= power_expo(i, f[i], MODD - 2);

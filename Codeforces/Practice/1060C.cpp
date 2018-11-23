@@ -27,5 +27,6 @@ int main()	{
 			prefix[i][j] = mat[i][j] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1];
 		}
 	}
+	
 	return 0;
 }
